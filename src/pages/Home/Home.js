@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
-import {firestore, firebase} from "../../DataBase/firebase.config"
+import {firebase} from "../../DataBase/firebase.config"
 import Button from '@mui/material/Button';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import  './styles.scss'
