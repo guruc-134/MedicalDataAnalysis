@@ -20,8 +20,8 @@ function App() {
     }
   });
     return (
-    <Grid container flexgrow={1}>
-        <h1 className='application_heading'> unPlatforms </h1>
+    <Grid container flexDirection="column" flexgrow={1}>
+        <h1 className='application_heading'>Medical Imports and Exports Dashboard</h1>
         <UserContext.Provider value ={providerValue}>
         <Router>
         {
@@ -32,7 +32,7 @@ function App() {
                 :
             <Routes>
               <Route exact path="/" element={<Login/>} />
-            </Routes>
+             </Routes>
         }
       </Router>
       </UserContext.Provider>

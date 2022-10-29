@@ -17,7 +17,7 @@ function Login() {
 }
   return (
     <Grid className='loginPage' >
-      <Grid >
+      <Grid style={{marginLeft:"100px"}}>
         <Welcome className="welcome"/>
       </Grid>
       <Grid className="loginButtonContainer">

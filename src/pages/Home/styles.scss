@@ -3,3 +3,43 @@
     top:10px;
     right:10px;
 }
+.content-container{
+    // display: flex;
+    // width: 80% !important;
+    margin: auto;
+}
+.yearWiseCharts{
+    width:80vw !important;
+    margin: auto;
+}
+.polarChart{
+    width: 80% !important;
+    margin-top: 0;
+    max-height: 95%;
+    padding-top: 0;
+}
+.title{
+    text-align: center;
+}
+.chartsContainerCanva{
+    width:80%;
+    backdrop-filter: blur(7px) saturate(177%);
+    -webkit-backdrop-filter: blur(7px) saturate(177%);
+    background-color: rgba(255, 252, 252, 0.73);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    margin:1em auto;
+    transition: .7s all ease-in;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.chartsContainerCanva:hover{
+    transform: scale(1.06);
+}
+button{
+    border:none;
+    outline:none;
+    background:white;
+    padding:10px 20px;
+    font-weight: bolder;
+    border-radius:10px;
+}

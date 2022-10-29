@@ -1,9 +1,11 @@
 .App {
   text-align: center;
+  background-color: white !important;
 }
 .application_heading{
   text-align: center;
   font-family: cursive;
+  display: block;
 }
 .App-logo {
   height: 40vmin;

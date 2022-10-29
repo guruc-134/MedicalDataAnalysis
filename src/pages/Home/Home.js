@@ -1,45 +1,55 @@
 import React, {useEffect, useState} from 'react';
-import BlogCard from '../../component/blogCard/BlogCard';
 import Grid from '@mui/material/Grid';
 import {firestore, firebase} from "../../DataBase/firebase.config"
 import Button from '@mui/material/Button';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import  './styles.scss'
+import '../../DataBase/dataHandling' 
+import YearWise from '../../component/YearWise/YearWise';
+import AllYears from '../../component/AllYears/AllYears';
+import ImportVsExport from '../../component/ImportVsExport/ImportVsExport';
+import {ReactComponent as HomePage} from '../../assets/HomePageSVG.svg'
+
+import PolarAreaChart from '../../component/PolarAreaChart/PolarAreaChart';
 // import axios from "axios"
 function Home() {
-  console.log("home called")
-  const [blogs,setBlogs] = useState([]);
   const logout = ()=>{
     firebase.auth().signOut()
-  }
-    const getBlogs = ()=>{
-      firestore.collection('/blogs').get()
-      .then(resp=>{
-        const arr = []
-        resp.docs.forEach(item=>
-          {
-            arr.push({...item.data(),id:item.id})
-          })
-        setBlogs(arr)
-      })
-    }
-  useEffect(() => {
-    getBlogs()
-  },[]);
+  } 
   return (
     <Grid>
         <div className='logout'>
           <Button onClick={logout}>
-            <ExitToAppIcon style={{fontSize:"40px", color:"#5959CA"}}/>
+            <ExitToAppIcon style={{fontSize:"60px", color:"white"}}/>
           </Button>
         </div>
-        <Grid container className='cards-container'>
-            {blogs.map(blog=>{
-                return (
-                <BlogCard blog={blog} id={blog.id} key={blog.id } commentsCount={blog.commentsCount}/>
-                )
-                })}
+        <Grid className="landingPage">
+          <div className='landingPage_left' style={{width:"80%",margin:"0 auto",marginTop:"-40px"}}>
+            <HomePage />
+          </div>
         </Grid>
+          <Grid className="chartsContainerCanva">
+            <YearWise type={"Export"}/>
+          </Grid>
+          <Grid className="chartsContainerCanva">
+            <YearWise type={"Import"}/>
+          </Grid>
+        <Grid className="chartsContainerCanva">
+          <AllYears type={"Export"}/>
+        </Grid>
+        <Grid className="chartsContainerCanva">
+          <AllYears type={"Import"}/>
+        </Grid>
+        <Grid className="chartsContainerCanva">
+        <ImportVsExport/>
+        </Grid>
+        <Grid className="chartsContainerCanva">
+          <PolarAreaChart type={"Import"}/>
+        </Grid>
+        <Grid className="chartsContainerCanva">
+          <PolarAreaChart type={"Export"}/>
+        </Grid>
+
     </Grid>
   );
 }
